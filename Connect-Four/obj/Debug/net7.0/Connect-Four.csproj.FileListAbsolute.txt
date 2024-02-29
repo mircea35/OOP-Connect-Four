@@ -1,0 +1,15 @@
+/home/mircea/Desktop/OOP-Connect-Four/Connect-Four/bin/Debug/net7.0/Connect-Four
+/home/mircea/Desktop/OOP-Connect-Four/Connect-Four/bin/Debug/net7.0/Connect-Four.deps.json
+/home/mircea/Desktop/OOP-Connect-Four/Connect-Four/bin/Debug/net7.0/Connect-Four.runtimeconfig.json
+/home/mircea/Desktop/OOP-Connect-Four/Connect-Four/bin/Debug/net7.0/Connect-Four.dll
+/home/mircea/Desktop/OOP-Connect-Four/Connect-Four/bin/Debug/net7.0/Connect-Four.pdb
+/home/mircea/Desktop/OOP-Connect-Four/Connect-Four/obj/Debug/net7.0/Connect-Four.csproj.AssemblyReference.cache
+/home/mircea/Desktop/OOP-Connect-Four/Connect-Four/obj/Debug/net7.0/Connect-Four.GeneratedMSBuildEditorConfig.editorconfig
+/home/mircea/Desktop/OOP-Connect-Four/Connect-Four/obj/Debug/net7.0/Connect-Four.AssemblyInfoInputs.cache
+/home/mircea/Desktop/OOP-Connect-Four/Connect-Four/obj/Debug/net7.0/Connect-Four.AssemblyInfo.cs
+/home/mircea/Desktop/OOP-Connect-Four/Connect-Four/obj/Debug/net7.0/Connect-Four.csproj.CoreCompileInputs.cache
+/home/mircea/Desktop/OOP-Connect-Four/Connect-Four/obj/Debug/net7.0/Connect-Four.dll
+/home/mircea/Desktop/OOP-Connect-Four/Connect-Four/obj/Debug/net7.0/refint/Connect-Four.dll
+/home/mircea/Desktop/OOP-Connect-Four/Connect-Four/obj/Debug/net7.0/Connect-Four.pdb
+/home/mircea/Desktop/OOP-Connect-Four/Connect-Four/obj/Debug/net7.0/Connect-Four.genruntimeconfig.cache
+/home/mircea/Desktop/OOP-Connect-Four/Connect-Four/obj/Debug/net7.0/ref/Connect-Four.dll
