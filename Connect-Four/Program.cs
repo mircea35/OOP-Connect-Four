@@ -27,10 +27,11 @@ class Program {
 
     static void playingTableGUI()
     {
-        Console.WriteLine("1 |", playingTable[0,0], "|" , playingTable[0,1], "|" , playingTable[0,2], "|", playingTable[0,3], "|");
-        Console.WriteLine("2 |", playingTable[0,0], "|" , playingTable[0,1], "|" , playingTable[0,2], "|", playingTable[0,3], "|");
-        Console.WriteLine("3 |", playingTable[0,0], "|" , playingTable[0,1], "|" , playingTable[0,2], "|", playingTable[0,3], "|");
-        Console.WriteLine("4 |", playingTable[0,0], "|" , playingTable[0,1], "|" , playingTable[0,2], "|", playingTable[0,3], "|");
+        Console.WriteLine(playingTable[0,0]);
+        Console.WriteLine("1 |" + playingTable[0,0] + "|" + playingTable[0,1] + "|" + playingTable[0,2] + "|" + playingTable[0,3] + "|");
+        Console.WriteLine("2 |" + playingTable[1,0] + "|" + playingTable[1,1] + "|" + playingTable[1,2] + "|" + playingTable[1,3] + "|");
+        Console.WriteLine("3 |" + playingTable[2,0] + "|" + playingTable[2,1] + "|" + playingTable[2,2] + "|" + playingTable[2,3] + "|");
+        Console.WriteLine("4 |" + playingTable[3,0] + "|" + playingTable[3,1] + "|" + playingTable[3,2] + "|" + playingTable[3,3] + "|");
         Console.WriteLine("X | 1 | 2 | 3 | 4 |");
     }
 
