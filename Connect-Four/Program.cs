@@ -2,13 +2,16 @@
 class Program { 
 
     static int[,] playingTable = { 
-    {3, 0, 0, 0},
-    {3, 0, 0, 0},
-    {3, 0, 0, 0},
-    {3, 0, 0, 0}
+    {3, 0, 0, 0, 1, 2, 7},
+    {3, 0, 0, 0, 1, 2, 6},
+    {3, 0, 0, 0, 1, 2, 4},
+    {3, 0, 0, 0, 1, 2, 5},
+    {3, 0, 0, 0, 1, 2, 8},
+    {3, 0, 0, 0, 1, 2, 9}
     };
 
     int playerNo = 0;
+    static int usrInput = 0;
 
     static void mainMenu(){
         Console.WriteLine("===Connect Four Game===");
@@ -27,14 +30,26 @@ class Program {
 
     static void playingTableGUI()
     {
-        Console.WriteLine(playingTable[0,0]);
-        Console.WriteLine("1 |" + playingTable[0,0] + "|" + playingTable[0,1] + "|" + playingTable[0,2] + "|" + playingTable[0,3] + "|");
-        Console.WriteLine("2 |" + playingTable[1,0] + "|" + playingTable[1,1] + "|" + playingTable[1,2] + "|" + playingTable[1,3] + "|");
-        Console.WriteLine("3 |" + playingTable[2,0] + "|" + playingTable[2,1] + "|" + playingTable[2,2] + "|" + playingTable[2,3] + "|");
-        Console.WriteLine("4 |" + playingTable[3,0] + "|" + playingTable[3,1] + "|" + playingTable[3,2] + "|" + playingTable[3,3] + "|");
-        Console.WriteLine("X | 1 | 2 | 3 | 4 |");
-    }
+        Console.WriteLine("| 1 | 2 | 3 | 4 | 5 | 6 | 7 |");
+        for(int i = 0; i < 6; i++){
+            for(int j = 0; j < 7; j++){
+                Console.Write("| " + playingTable[i,j] + " " );
+            }
+            Console.WriteLine("|");
+        }
+    } 
 
+    static void pushToTable(){
+        usrInput--;
+        for(int i = 5; i > 0; i--){
+            if(playingTable[usrInput,i] == 0){
+                
+            }
+            else{
+                
+            }
+        }
+    }
     static public void Main(String[] args) 
     { 
         playingTableGUI();
