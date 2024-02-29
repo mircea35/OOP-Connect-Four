@@ -10,7 +10,7 @@ class Program {
     {3, 0, 0, 0, 1, 2, 9}
     };
 
-    int playerNo = 0;
+    static int playerNo = 0;
     static int usrInput = 0;
 
     static void mainMenu(){
@@ -41,12 +41,9 @@ class Program {
 
     static void pushToTable(){
         usrInput--;
-        for(int i = 5; i > 0; i--){
+        for(int i = 5; i >= 0; i--){
             if(playingTable[usrInput,i] == 0){
-                
-            }
-            else{
-                
+                playingTable[usrInput,i] = playerNo;
             }
         }
     }
