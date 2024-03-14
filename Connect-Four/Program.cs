@@ -1,31 +1,20 @@
 ﻿using System;
 class Program { 
 
-    static int[,] playingTable = { 
-    {3, 0, 0, 0, 1, 2, 7},
-    {3, 0, 0, 0, 1, 2, 6},
-    {3, 0, 0, 0, 1, 2, 4},
-    {3, 0, 0, 0, 1, 2, 5},
-    {3, 0, 0, 0, 1, 2, 8},
-    {3, 0, 0, 0, 1, 2, 9}
+    static string[,] playingTable = { 
+    {" ", " ", " ", " ", " ", " ", " "},
+    {" ", " ", " ", " ", " ", " ", " "},
+    {" ", " ", " ", " ", " ", " ", " "},
+    {" ", " ", " ", " ", " ", " ", " "},
+    {" ", " ", " ", " ", " ", " ", " "},
+    {" ", " ", " ", " ", " ", " ", " "}
     };
 
-    static int playerNo = 0;
+    static string player = "j";
     static int usrInput = 0;
 
     static void mainMenu(){
-        Console.WriteLine("===Connect Four Game===");
-        Console.WriteLine("1 - Play");
-        Console.WriteLine("2 - Exit");
-        int option = 0;
-        switch(option){
-            case 1:
-                break;
-            case 2:
-                break;
-            default:
-                break;
-        }
+
     }
 
     static void playingTableGUI()
@@ -37,19 +26,85 @@ class Program {
             }
             Console.WriteLine("|");
         }
+        Console.WriteLine($"Now playing: player {player}");
     } 
 
     static void pushToTable(){
         usrInput--;
         for(int i = 5; i >= 0; i--){
-            if(playingTable[usrInput,i] == 0){
-                playingTable[usrInput,i] = playerNo;
+            if(playingTable[usrInput,i] == ""){
+                playingTable[usrInput,i] = player;
             }
         }
     }
+
+    public static int row = 7;
+    public static int col = 6;
+
+    public static bool CheckWinner(){
+        //checking horisontally
+        for(int i = 0; i < row; i++){
+            for(int j = 0; j < col; j++){
+                if (playingTable[i,j] == player && playingTable[i, j + 1] == player && playingTable[i, j + 2] == player && playingTable[i, j + 3] == player){
+                    return true;
+                }
+            }
+        }
+
+        // Checking vertically
+        for (int i = 0; i < row - 3; i++)
+        {
+            for (int j = 0; j < col; j++)
+            {
+                if (playingTable[i, j] == player && playingTable[i + 1, j] == player && playingTable[i + 2, j] == player && playingTable[i + 3, j] == player)
+                    return true;
+            }
+        }
+
+        // Checking diagonally (positive slope)
+        for (int i = 0; i < row - 3; i++)
+        {
+            for (int j = 0; j < col - 3; j++)
+            {
+                if (playingTable[i, j] == player && playingTable[i + 1, j + 1] == player && playingTable[i + 2, j + 2] == player && playingTable[i + 3, j + 3] == player)
+                    return true;
+            }
+        }
+
+        // Checking diagonally (negative slope)
+        for (int i = 0; i < row - 3; i++)
+        {
+            for (int j = 3; j < col; j++)
+            {
+                if (playingTable[i, j] == player && playingTable[i + 1, j - 1] == player && playingTable[i + 2, j - 2] == player && playingTable[i + 3, j - 3] == player)
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+
     static public void Main(String[] args) 
     { 
-        playingTableGUI();
+        Console.WriteLine("___Connect Four Game___");
+        Console.WriteLine("1 - Play");
+        Console.WriteLine("2 - Exit");
+        int option = Convert.ToInt32(Console.ReadLine());
+        switch(option){
+            case 1:
+                playingTableGUI();
+                usrInput = Convert.ToInt32(Console.ReadLine());
+                if(usrInput < 1 || usrInput > 8)
+                {
+                    Console.WriteLine("Out of bounds");
+                }
+                break;
+            case 2:
+                break;
+            default:
+                break;
+        }
 
     } 
 } 
