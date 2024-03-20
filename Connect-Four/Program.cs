@@ -1,6 +1,44 @@
 ﻿using System;
-class Program { 
+using System.Collections.Generic;
+using System.Globalization;
+abstract class Player{
+    public string playerName {get;set;}
+    public int playerInt {get; set;}
 
+    public Player(string name, int integer)
+    {
+        this.playerName = name;
+        this.playerInt = integer;
+    }
+
+    public abstract string playerNumber();
+}
+
+class playerX : Player{
+    public playerX(string name, int integer) : base(name, integer)
+    {
+
+    }
+
+    public override string playerNumber()
+    {
+        return "x";
+    }
+}
+    
+class playerY : Player{
+    public playerY(string name, int integer) : base(name, integer)
+    {
+
+    }
+
+    public override string playerNumber()
+    {
+        return "y";
+    }
+}
+  
+internal class Program { 
     static string[,] playingTable = { 
     {" ", " ", " ", " ", " ", " ", " "},
     {" ", " ", " ", " ", " ", " ", " "},

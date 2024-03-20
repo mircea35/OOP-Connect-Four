@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nzo7X5jkbRyJuaiNT+G8XQzCtWz7EkL/oHxo5+xpt/VymgeMDiOxB+prEWz/ig85vKEFmLO1O2r3EhmiBwI1Rg==",
+  "dgSpecHash": "UQLFsJ4Xv9ZaWDpcSrMObDMswbJisTGjTuM3IJ0eTjCTqwtCJLsIEFykosI4LKKS02iRH0WOzjbmgdp+y6MR+g==",
   "success": true,
-  "projectFilePath": "/home/mircea/Documents/Github-Projects/OOP-Connect-Four/Connect-Four/Connect-Four.csproj",
+  "projectFilePath": "/home/mircea/Documents/Github/OOP-Connect-Four/Connect-Four/Connect-Four.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
