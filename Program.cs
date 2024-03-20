@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 abstract class Player{
     public string playerName {get;set;}
-    public int playerInt {get; set;}
+    public string playerChar {get; set;}
 
-    public Player(string name, int integer)
+    public Player(string name, string userChar)
     {
         this.playerName = name;
-        this.playerInt = integer;
+        this.playerChar = userChar;
     }
 
     public abstract string playerNumber();
 }
 
 class playerX : Player{
-    public playerX(string name, int integer) : base(name, integer)
+    public playerX(string name, string userChar) : base(name, userChar)
     {
 
     }
@@ -27,7 +28,7 @@ class playerX : Player{
 }
     
 class playerY : Player{
-    public playerY(string name, int integer) : base(name, integer)
+    public playerY(string name, string userChar) : base(name, userChar)
     {
 
     }
@@ -39,6 +40,11 @@ class playerY : Player{
 }
   
 internal class Program { 
+    static int userInput = 0;
+    static int turnCounter = 0;
+    public static int row = 7;
+    public static int col = 6;
+
     static string[,] playingTable = { 
     {" ", " ", " ", " ", " ", " ", " "},
     {" ", " ", " ", " ", " ", " ", " "},
@@ -48,11 +54,18 @@ internal class Program {
     {" ", " ", " ", " ", " ", " ", " "}
     };
 
-    static string player = "j";
-    static int usrInput = 0;
-
-    static void mainMenu(){
-
+    static void definingPlayers(){
+        for(turnCounter = 0; turnCounter < 2; turnCounter++){
+            Console.WriteLine("Player name: ");
+            switch(turnCounter){
+                case 0:
+                    Player playerOne = new playerX(tempName, tempChar);
+                    break;
+                default:
+                    Player playerTwo = new playerY(tempName, tempChar);
+                    break;
+            }
+        }
     }
 
     static void playingTableGUI()
@@ -64,26 +77,23 @@ internal class Program {
             }
             Console.WriteLine("|");
         }
-        Console.WriteLine($"Now playing: player {player}");
+        Console.WriteLine($"Now playing: player {playingUser.playerName}");
     } 
 
     static void pushToTable(){
-        usrInput--;
+        userInput--;
         for(int i = 5; i >= 0; i--){
-            if(playingTable[usrInput,i] == ""){
-                playingTable[usrInput,i] = player;
+            if(playingTable[userInput,i] == ""){
+                playingTable[userInput,i] = playingUser.playerChar;
             }
         }
     }
-
-    public static int row = 7;
-    public static int col = 6;
 
     public static bool CheckWinner(){
         //checking horisontally
         for(int i = 0; i < row; i++){
             for(int j = 0; j < col; j++){
-                if (playingTable[i,j] == player && playingTable[i, j + 1] == player && playingTable[i, j + 2] == player && playingTable[i, j + 3] == player){
+                if (playingTable[i,j] == playingUser.playerChar && playingTable[i, j + 1] == playingUser.playerChar && playingTable[i, j + 2] == playingUser.playerChar && playingTable[i, j + 3] == playingUser.playerChar){
                     return true;
                 }
             }
@@ -94,7 +104,7 @@ internal class Program {
         {
             for (int j = 0; j < col; j++)
             {
-                if (playingTable[i, j] == player && playingTable[i + 1, j] == player && playingTable[i + 2, j] == player && playingTable[i + 3, j] == player)
+                if (playingTable[i, j] == playingUser.playerChar && playingTable[i + 1, j] == playingUser.playerChar && playingTable[i + 2, j] == playingUser.playerChar && playingTable[i + 3, j] == playingUser.playerChar)
                     return true;
             }
         }
@@ -104,7 +114,7 @@ internal class Program {
         {
             for (int j = 0; j < col - 3; j++)
             {
-                if (playingTable[i, j] == player && playingTable[i + 1, j + 1] == player && playingTable[i + 2, j + 2] == player && playingTable[i + 3, j + 3] == player)
+                if (playingTable[i, j] == playingUser.playerChar && playingTable[i + 1, j + 1] == playingUser.playerChar && playingTable[i + 2, j + 2] == playingUser.playerChar && playingTable[i + 3, j + 3] == playingUser.playerChar)
                     return true;
             }
         }
@@ -114,7 +124,7 @@ internal class Program {
         {
             for (int j = 3; j < col; j++)
             {
-                if (playingTable[i, j] == player && playingTable[i + 1, j - 1] == player && playingTable[i + 2, j - 2] == player && playingTable[i + 3, j - 3] == player)
+                if (playingTable[i, j] == playingUser.playerChar && playingTable[i + 1, j - 1] == playingUser.playerChar && playingTable[i + 2, j - 2] == playingUser.playerChar && playingTable[i + 3, j - 3] == playingUser.playerChar)
                     return true;
             }
         }
@@ -122,27 +132,64 @@ internal class Program {
         return false;
     }
 
+    public static string tempName = "", tempChar = "";
+    public static int tempInt = 0;
+
+    static Player playingUser;
 
     static public void Main(String[] args) 
     { 
+
+        int option = 0;
+        List<string> names = new List<string>();
+
         Console.WriteLine("___Connect Four Game___");
         Console.WriteLine("1 - Play");
         Console.WriteLine("2 - Exit");
-        int option = Convert.ToInt32(Console.ReadLine());
-        switch(option){
-            case 1:
-                playingTableGUI();
-                usrInput = Convert.ToInt32(Console.ReadLine());
-                if(usrInput < 1 || usrInput > 8)
-                {
-                    Console.WriteLine("Out of bounds");
-                }
-                break;
-            case 2:
-                break;
-            default:
-                break;
+
+
+
+        string userInput = Console.ReadLine();
+
+        if(int.TryParse(userInput, out option) && option > 0 && option < 3){
+            switch(option){
+                case 1:
+
+                    for(turnCounter = 0; turnCounter < 2; turnCounter++){
+                        Console.WriteLine("Player name: ");
+                        userInput = Console.ReadLine();
+                        names.Add(userInput);
+                    }
+                    
+                    Player playerOne = new playerX(names[0], tempChar);
+                    Player playerTwo = new playerY(names[1], tempChar);
+
+                    switch(turnCounter){
+                        case 0:
+                            playingUser = playerOne;
+                            break;
+
+                        default:
+                            playingUser = playerTwo;
+                            break;
+                    }
+
+                    playingTableGUI();
+
+                    userInput = Console.ReadLine();
+                    if(int.TryParse(userInput, out option) && option < 1 || option > 8)
+                    {
+                        Console.WriteLine("Out of bounds");
+                    }
+                    break;
+                case 2:
+                    break;
+                default:
+                    break;
+            }
         }
+
+
 
     } 
 } 
