@@ -35,7 +35,7 @@ class playerY : Player{
 
     public override string playerNumber()
     {
-        return "y";
+        return "o";
     }
 }
   
