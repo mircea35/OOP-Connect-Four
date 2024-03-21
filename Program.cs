@@ -84,7 +84,7 @@ internal class Program {
 
     static void pushToTable()
     {
-        for(int i = 0; i < 5; i++){
+        for(int i = 0; i <= 5; i++){
             if(playingTable[5 - i, option] == " "){
                 playingTable[5 - i, option] = playingUser.playerNumber();
                 break;
