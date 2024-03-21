@@ -44,6 +44,8 @@ internal class Program {
     static int turnCounter = 0;
     public static int row = 7;
     public static int col = 6;
+    static int option = 0;
+    static bool hasWon = false;
 
     static string[,] playingTable = { 
     {" ", " ", " ", " ", " ", " ", " "},
@@ -80,11 +82,16 @@ internal class Program {
         Console.WriteLine($"Now playing: player {playingUser.playerName}");
     } 
 
-    static void pushToTable(){
-        userInput--;
-        for(int i = 5; i >= 0; i--){
-            if(playingTable[userInput,i] == ""){
-                playingTable[userInput,i] = playingUser.playerChar;
+    static void pushToTable()
+    {
+
+        for(int i = 0; i < 5; i++){
+            if(playingTable[5 - i, option] == " "){
+                playingTable[5 - i, option] = playingUser.playerNumber();
+                break;
+            }
+            else{
+                Console.WriteLine("Cannot put more there! Try another one.");
             }
         }
     }
@@ -136,18 +143,15 @@ internal class Program {
     public static int tempInt = 0;
 
     static Player playingUser;
-
     static public void Main(String[] args) 
     { 
 
-        int option = 0;
+        
         List<string> names = new List<string>();
 
         Console.WriteLine("___Connect Four Game___");
         Console.WriteLine("1 - Play");
         Console.WriteLine("2 - Exit");
-
-
 
         string userInput = Console.ReadLine();
 
@@ -164,6 +168,8 @@ internal class Program {
                     Player playerOne = new playerX(names[0], tempChar);
                     Player playerTwo = new playerY(names[1], tempChar);
 
+                    turnCounter = 0;
+
                     switch(turnCounter){
                         case 0:
                             playingUser = playerOne;
@@ -174,17 +180,25 @@ internal class Program {
                             break;
                     }
 
-                    playingTableGUI();
+                    while(hasWon == false){
+                        playingTableGUI();
 
-                    userInput = Console.ReadLine();
-                    if(int.TryParse(userInput, out option) && option < 1 || option > 8)
-                    {
-                        Console.WriteLine("Out of bounds");
+                        userInput = Console.ReadLine();
+
+                        if(int.TryParse(userInput, out option) && option < 1 || option >= 8)
+                        {
+                            Console.WriteLine("Out of bounds");
+                        }
+                        else{
+                            option--;
+                            pushToTable();
+                        }
+
                     }
                     break;
-                case 2:
-                    break;
+
                 default:
+                    Console.WriteLine("See you soon!");
                     break;
             }
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/mircea/Documents/Github/OOP-Connect-Four/Connect-Four.csproj": {}
+    "/home/mircea/Documents/Github-Projects/OOP-Connect-Four/Connect-Four.csproj": {}
   },
   "projects": {
-    "/home/mircea/Documents/Github/OOP-Connect-Four/Connect-Four.csproj": {
+    "/home/mircea/Documents/Github-Projects/OOP-Connect-Four/Connect-Four.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/mircea/Documents/Github/OOP-Connect-Four/Connect-Four.csproj",
+        "projectUniqueName": "/home/mircea/Documents/Github-Projects/OOP-Connect-Four/Connect-Four.csproj",
         "projectName": "Connect-Four",
-        "projectPath": "/home/mircea/Documents/Github/OOP-Connect-Four/Connect-Four.csproj",
+        "projectPath": "/home/mircea/Documents/Github-Projects/OOP-Connect-Four/Connect-Four.csproj",
         "packagesPath": "/home/mircea/.nuget/packages/",
-        "outputPath": "/home/mircea/Documents/Github/OOP-Connect-Four/obj/",
+        "outputPath": "/home/mircea/Documents/Github-Projects/OOP-Connect-Four/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/mircea/.nuget/NuGet/NuGet.Config"
