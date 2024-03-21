@@ -84,7 +84,6 @@ internal class Program {
 
     static void pushToTable()
     {
-
         for(int i = 0; i < 5; i++){
             if(playingTable[5 - i, option] == " "){
                 playingTable[5 - i, option] = playingUser.playerNumber();
@@ -96,6 +95,8 @@ internal class Program {
         }
     }
 
+//This function checks the playingTable array for a 4-in-a-row character. If a line of identical 4 characters is detected, the user which
+//has that character will be declared the winner of the game. The game will also stop once that is done.
     public static bool CheckWinner(){
         //checking horisontally
         for(int i = 0; i < row; i++){
